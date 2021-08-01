@@ -1,5 +1,5 @@
 //This code is writen by some one else
-//I copied this code to analyse
+//This code is just for my analysis
 
 
 #include<bits/stdc++.h>
