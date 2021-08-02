@@ -27,7 +27,6 @@ Constraints:
 s consists of English letters, digits, symbols and spaces.
 */
 
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -35,20 +34,19 @@ using namespace std;
 //We are testing below function
     int lengthOfLongestSubstring(string s) {
         //Write your code here
-        int max=0,i=0,j=0;
-        map<char,bool> m;
+        int longestSS=0,i=0,j=0;
+        bool symbolArray[128]={false};
         while(s[i]){
-            if(m.find(s[i])==m.end()){
-                m[s[i++]]=true;
+            if(!symbolArray[s[i]]){
+                symbolArray[s[i++]]=true;
             }    
             else{
-                m.erase(s[j++]);
+                symbolArray[s[j++]]=false;
             }
-            max = max>(i-j)?max:(i-j);
+            longestSS = longestSS>(i-j)?longestSS:(i-j);
         }
-        return max;
+        return longestSS;
     }
-
 
 
 
@@ -62,7 +60,7 @@ using namespace std;
 #define RUN 5000
  
 // Define the range of the test data generated
-#define MAX 128
+#define MAX 26
  
 int main()
 {
@@ -73,12 +71,11 @@ int main()
     srand(time(NULL));
     int str_len = rand() % RUN;
 
-    //we are going to test 20 diff randomly genrated test cases
     int TestCases = 20;
     while(TestCases-->0){
         cout<<"\"";
         for (int i=1; i<=str_len; i++){
-            printf("%c", rand() % MAX);
+            printf("%c", 65 + rand() % MAX);
         }
         cout<<"\"\n";
     }
