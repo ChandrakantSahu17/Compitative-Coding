@@ -18,8 +18,7 @@ static int x = []() {
     return 0;
 }();
 
-class Solution {
-public:
+
     vector<vector<int>>&& threeSum(vector<int>& nums) {
         if (nums.size() < 3) return vector<vector<int>>();
         ans.clear();
@@ -73,4 +72,37 @@ public:
         
         return move(ans);
     }
-};
+
+
+int main()
+{
+    //Input file and output file opening
+    freopen("input.txt","r",stdin);
+    freopen("output.txt","w",stdout);
+
+    //we have to pass an array to the fuction which we are going to test
+    //therefor create a vector
+    std::vector<int> v;
+
+    //input in vector
+    int x;
+    while(cin>>x)
+        v.push_back(x);
+
+    //function callingstore result in below array
+    std::vector<vector<int>> result= threeSum(v);
+
+    //print result
+    for(int i=0; i<result.size();i++){
+        for(int j=0; j<result[i].size();j++){
+            cout<<result[i][j]<<"   ";
+        }
+        cout<<endl;
+    }
+
+    //closing file
+    fclose(stdin);
+    fclose(stdout);
+    
+    return(0);
+}
