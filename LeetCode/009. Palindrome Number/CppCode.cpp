@@ -1,8 +1,9 @@
 /*
-Quse:-
+Ques:-
+
 Given a signed 32-bit integer x, return x with its digits reversed.
 If reversing x causes the value to go outside the signed 32-bit
-integer range [-231, 231 - 1], then return 0.
+integer range [-2^31, 2^31 - 1], then return 0.
 
 */
 
@@ -11,18 +12,17 @@ using namespace std;
 
 class Solution {
 public:
-    int reverse(int x) {
-        bool sign = x<0 ? true : false;
-        x = abs(x);
-        long y = 0;
+    bool isPalindrome(int x) {
+        if(x<0) return false;
+        long x_copy = x,y=0;
         while(x){
             y *= 10;
             y += x%10;
             x /= 10;
         }
-        if( y<INT_MIN || INT_MAX<y)
-            return 0;
-        return sign? int(-y) : int(y);
-            
+        if(x_copy == y)
+            return true;
+        return false;
+        
     }
 };
