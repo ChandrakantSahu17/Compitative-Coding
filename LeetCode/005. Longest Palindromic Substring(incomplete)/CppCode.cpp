@@ -46,7 +46,7 @@ using namespace std;
             for(k=i,j=0; k<n ; j++,k++){
                 cout<<k<<" "<<j<<endl;
                 if(Table[j][k]==1)
-                    return s.substr(j,k);
+                    return s.substr(j,k-j+1);
             }
         }
         return "Just to Remove Warning";
