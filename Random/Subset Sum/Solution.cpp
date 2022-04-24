@@ -14,19 +14,18 @@ public:
     }
 
 
-    bool SubsetSumExistanceCheckerDP( int sum, vector<int>& items){
+    int SubsetSumExistanceCheckerDP( int sum, vector<int>& items){
         int n = items.size();
-        vector<vector<bool>> t( n+1, vector<bool> (sum+1, false));
+        vector<vector<int>> table( n+1, vector<int> (sum+1 , 0) );
         for( int i=0; i<=n ; i++ )
-            t[i][0] = true;
+            table[i][0] = 1;
+        for( int i=1; i<=n ; i++ ){
+            for( int j=1; j<=sum; j++ ){
+                if( j > items[i-1] )
+                    table[i][j] = 
 
-        for( int i=1 ; i<=n ; i++ ){
-            for( int j=1; j<=sum ; j++ ){
-                if( t[i-1][j-1] || t[i-1][j] )
-                    t[i][j] = true;
             }
         }
-        return t[n][sum];
     }
 
 
